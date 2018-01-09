@@ -22,12 +22,13 @@ export default new Router({
       children: [{
         path: '',
         name: '',
-        component: home
+        component: home,
+        meta: ['系统设置']
       }, {
         path: '/manSystem',
         name: 'manSystem',
         component: manSystem,
-        meta: ['后台管理-系统设置']
+        meta: ['职业顾问管理']
       }]
     }
   ]
