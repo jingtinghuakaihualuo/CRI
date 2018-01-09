@@ -17,8 +17,8 @@ Vue.prototype.axios = axios
 new Vue({
   el: '#app',
   router,
-  store,  
-  axios, 
+  store,
+  axios,
   ElementUI,
   template: '<App/>',
   components: { App }
