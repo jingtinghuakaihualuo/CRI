@@ -8,11 +8,12 @@ import { baseUrl } from './apiUrl'
 import Vue from 'vue'
 import axios from 'axios'
 Vue.prototype.axios = axios
-//, suc, err
-export default async(url = '', data = {}, type = 'GET') => {
+
+let res = '';
+export default async(url = '', data = {}, type = 'GET', suc, err) => {
 	type = type.toUpperCase();
 	url = baseUrl + url;
-	console.log(url);
+
 	if (type === 'GET') {
 		let dataStr = ''; //数据拼接字符串
 		Object.keys(data).forEach(key => {
@@ -25,26 +26,21 @@ export default async(url = '', data = {}, type = 'GET') => {
 		}
 		axios.get(url)
 			.then((response) => {
-				// suc(response);
-				return response;
+				suc(response);
 			})
 			.catch((error) => {
-				// err(error);
-				return response;
+				err(error);
 			})
 	}
 	else {
-		let  postData = [...data];
+		let  postData = { ...data };
 		let newData = JSON.stringify(postData);
 		axios.post(url, newData)
 		.then(function (response) {
-			// suc(response);
-			return response;
+			suc(response);
 		})
 		.catch(function (error) {
-			// err(error);
-			return response;
+			err(error);
 		});
 	}
-
 }

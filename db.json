@@ -3,8 +3,20 @@
     "code": "0000",
     "message": "成功",
     "sign": "UCwdFBDJDFk7FGHI7xOMcSsRHOr2Z6XSerfa23421/234SF/yJOI2S7EJyZmSAA==",
-    "result": [{
-      "loginid": "1"
-      }]
-    }
+    "result": [
+      {
+        "loginid": "1"
+      }
+    ]
+  },
+  "loginto": {
+    "code": "0000",
+    "message": "成功",
+    "sign": "UCwdFBDJDFk7FGHI7xOMcSsRHOr2Z6XSerfa23421/234SF/yJOI2S7EJyZmSAA==",
+    "result": [
+      {
+        "loginid": "1"
+      }
+    ]
+  }
 }

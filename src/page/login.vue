@@ -52,26 +52,28 @@
 			async submitForm(formName) {
 				this.$refs[formName].validate(async (valid) => {
 					if (valid) {
-						const res = await login({loginid: this.loginForm.loginid, pwd: this.loginForm.pwd})
-						// if (res.status == 1) {
-						// 	this.$message({
-		        //                 type: 'success',
-		        //                 message: '登录成功'
-		        //             });
-						// 	this.$router.push('manage')
-						// }else{
-						// 	this.$message({
-		        //                 type: 'error',
-		        //                 message: res.message
-		        //             });
-						// }
-					} else {
-						this.$notify.error({
-							title: '错误',
-							message: '请输入正确的用户名密码',
-							offset: 100
+						const res = await login({loginid: this.loginForm.loginid, pwd: this.loginForm.pwd}, function(res){
+							if (res.code == "000") {
+									this.$message({
+                    type: 'success',
+                    message: '登录成功'
+                  });
+                this.$router.push('manage');
+							}
+							else {
+								this.$message({
+                  type: 'error',
+                  message: res.message
+                });
+							}
+						}, function(res){
+							this.$notify.error({
+								title: '错误',
+								message: '请输入正确的用户名密码',
+								offset: 100
+							});
+							return false;
 						});
-						return false;
 					}
 				});
 			},
