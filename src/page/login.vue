@@ -53,18 +53,18 @@
 				this.$refs[formName].validate(async (valid) => {
 					if (valid) {
 						const res = await login({loginid: this.loginForm.loginid, pwd: this.loginForm.pwd})
-						if (res.status == 1) {
-							this.$message({
-		                        type: 'success',
-		                        message: '登录成功'
-		                    });
-							this.$router.push('manage')
-						}else{
-							this.$message({
-		                        type: 'error',
-		                        message: res.message
-		                    });
-						}
+						// if (res.status == 1) {
+						// 	this.$message({
+		        //                 type: 'success',
+		        //                 message: '登录成功'
+		        //             });
+						// 	this.$router.push('manage')
+						// }else{
+						// 	this.$message({
+		        //                 type: 'error',
+		        //                 message: res.message
+		        //             });
+						// }
 					} else {
 						this.$notify.error({
 							title: '错误',
