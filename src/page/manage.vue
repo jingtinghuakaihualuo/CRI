@@ -1,18 +1,25 @@
 <template>
 	<div class="fillcontain">
-		<leftnav></leftnav>
+		<el-row style="height: 100%;">
+			<leftnav></leftnav>
+			<el-col :span="21" style="height: 100%;overflow: auto;">
+				<keep-alive>
+				    <router-view></router-view>
+				</keep-alive>
+			</el-col>
+		</el-row>
   	</div>
 </template>
 
 <script>
-    import leftnav from '@/components/leftnav'
+  import leftnav from '@/components/leftnav'
 	export default {
 		data() {
 			return {
 
 			}
 		},
-		
+
 		components: {
 			leftnav
 		},
@@ -22,6 +29,6 @@
 
 
 <style lang="sass" scoped>
-	@import '../style/mixin';
-	@import '../style/common';
+	@import '../style/mixin'
+	@import '../style/common'
 </style>

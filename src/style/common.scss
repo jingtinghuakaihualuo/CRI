@@ -13,35 +13,35 @@ body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, l
     }
 }
 
-/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
-::-webkit-scrollbar  
-{  
-    width: 0px;  
-    height: 0px;  
-    background-color: #F5F5F5;  
-}  
-  
-/*定义滚动条轨道 内阴影+圆角*/  
-::-webkit-scrollbar-track  
-{  
-    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);  
-    border-radius: 10px;  
-    background-color: #F5F5F5;  
-}  
-  
-/*定义滑块 内阴影+圆角*/  
-::-webkit-scrollbar-thumb  
-{  
-    border-radius: 10px;  
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
-    background-color: #555;  
-}  
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+    width: 0px;
+    height: 0px;
+    background-color: #F5F5F5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
 
 input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {
     -webkit-appearance: none;
 }
 
-textarea { -webkit-appearance: none;}   
+textarea { -webkit-appearance: none;}
 
 html,body{
     height: 100%;
@@ -112,4 +112,26 @@ html,body{
         color: #bfcbd9;
         background: #48576a;
     }
+}
+.el-menu-item.is-active {
+  background: #48576a;
+}
+//头部
+
+.header_container{
+	background-color: #EFF2F7;
+	height: 60px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 20px;
+}
+.avator{
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	margin-right: 37px;
+}
+.el-dropdown-menu__item{
+    text-align: center;
 }
