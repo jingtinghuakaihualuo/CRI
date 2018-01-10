@@ -1,5 +1,5 @@
 <template>
-	<el-col :span="3"  style="min-height: 100%;min-width: 200px; background-color: #324057;">
+	<el-col :span="3"  style="min-height: 100%;background-color: #324057;">
 	<!--   -->
 		<el-menu :default-active="defaultActive" style="min-height: 100%;" router>
 			<!-- <el-menu-item index="manage"><i class="el-icon-menu"></i>首页</el-menu-item> -->
