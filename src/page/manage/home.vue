@@ -2,7 +2,7 @@
   <div class="fillcontain">
     <headTop></headTop>
     <div class="fromSystem">
-      <el-form ref="formData"  :rules="rules" :model="formData" label-width="100px">
+      <el-form ref="formData" :label-position="labelPosition"  :rules="rules" :model="formData" label-width="100px">
         <el-form-item label="系统名称">
           <el-input v-model="formData.sitename"></el-input>
         </el-form-item>
@@ -46,6 +46,7 @@
           email: '',
           telphone: ''
         },
+        labelPosition: "right",
         rules: {
 
         }

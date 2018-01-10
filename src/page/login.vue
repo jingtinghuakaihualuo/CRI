@@ -24,7 +24,7 @@
 <script>
 	import { login } from '@/apiData/api'
 	// import {mapActions, mapState} from 'vuex'
-
+  let vm;
 	export default {
 	    data(){
 			return {
@@ -44,30 +44,30 @@
 			}
 		},
 		mounted(){
-
+      vm = this;
 		},
 		computed: {
 		},
 		methods: {
 			async submitForm(formName) {
-				this.$refs[formName].validate(async (valid) => {
+				vm.$refs[formName].validate(async (valid) => {
 					if (valid) {
-						const res = await login({loginid: this.loginForm.loginid, pwd: this.loginForm.pwd}, function(res){
+						const res = await login({loginid: vm.loginForm.loginid, pwd: vm.loginForm.pwd}, function(res){
 							if (res.code == "000") {
-									this.$message({
+									vm.$message({
                     type: 'success',
                     message: '登录成功'
                   });
-                this.$router.push('manage');
+                vm.$router.push('manage');
 							}
 							else {
-								this.$message({
+								vm.$message({
                   type: 'error',
                   message: res.message
                 });
 							}
 						}, function(res){
-							this.$notify.error({
+							vm.$notify.error({
 								title: '错误',
 								message: '请输入正确的用户名密码',
 								offset: 100
