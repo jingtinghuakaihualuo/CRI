@@ -31,6 +31,7 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary">查找</el-button>
+          <el-button type="primary" @click='addNew'>新增</el-button>
         </el-form-item>
       </el-form>
       <div class="dataTable">
@@ -161,7 +162,9 @@
 			headTop
 		},
 		methods: {
-
+      addNew() {
+        vm.$router.push({ name: 'addManSys', params: { userId: 123 }})
+      }
     }
 
   }

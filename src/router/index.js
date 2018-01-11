@@ -8,6 +8,7 @@ const manage = r => require.ensure([], () => r(require('@/page/manage')), 'manag
 // manage下的子文件
 const home = r => require.ensure([], () => r(require('@/page/manage/home'), 'home'));
 const manSystem = r => require.ensure([], () => r(require('@/page/manage/manSystem'), 'manSystem'));
+const addManSys = r => require.ensure([], () => r(require('@/page/manage/addManSys'), 'addManSys'));
 
 export default new Router({
   routes: [
@@ -29,6 +30,11 @@ export default new Router({
         name: 'manSystem',
         component: manSystem,
         meta: ['职业顾问管理']
+      },{
+        path: '/addManSys',
+        name: 'addManSys',
+        component: addManSys,
+        meta: ['新增职业顾问管理']
       }]
     }
   ]
