@@ -34,12 +34,12 @@
         </el-form-item>
       </el-form>
       <div class="dataTable">
-        <el-table :data="tableData" style="width: 100%" height="250">
+        <el-table :data="tableData" style="width: 100%" height="500" empty-text="暂无数据">
           <el-table-column prop="conid" label="顾问ID" width="150"></el-table-column>
           <el-table-column prop="constype" label="经纪人类型" width="150"></el-table-column>
           <el-table-column prop="regtype" label="注册方式" width="150"></el-table-column>
           <el-table-column prop="compyid" label="所属公司ID" width="150"></el-table-column>
-          <el-table-column prop="compyname" label="所属公司名称" width="150"></el-table-column>、
+          <el-table-column prop="compyname" label="所属公司名称" width="150"></el-table-column>
           <el-table-column prop="loginid" label="登录帐号" width="150"></el-table-column>
           <el-table-column prop="pwd" label="登录密码" width="150"></el-table-column>
           <el-table-column prop="deposit" label="银行账号" width="150"></el-table-column>
@@ -47,8 +47,10 @@
           <el-table-column prop="openbank" label="开户行" width="150"></el-table-column>
           <el-table-column prop="img" label="顾问头像" width="150"></el-table-column>
           <el-table-column prop="background" label="背景图" width="150"></el-table-column>
-          <el-table-column prop="sex == 0 ? '男' : '女'" label="性别" width="150"></el-table-column>
-          <el-table-column prop="token" label="登录令牌" width="150"></el-table-column>、
+          <el-table-column prop="sex"  label="性别" width="150">
+            <template slot-scope="scope"><i>{{scope.row.sex == 0 ? '男': '女'}}</i></template>
+          </el-table-column>
+          <el-table-column prop="token" label="登录令牌" width="150"></el-table-column>
           <el-table-column prop="prov" label="省份代码" width="150"></el-table-column>
           <el-table-column prop="city" label="城市代码" width="150"></el-table-column>
           <el-table-column prop="area" label="区代码" width="150"></el-table-column>
@@ -57,7 +59,7 @@
           <el-table-column prop="experience" label="行业经验" width="150"></el-table-column>
           <el-table-column prop="certname" label="真实证件姓名" width="150"></el-table-column>
           <el-table-column prop="certno" label="证件号码" width="150"></el-table-column>
-          <el-table-column prop="imgcert" label="证件影印" width="150"></el-table-column>、
+          <el-table-column prop="imgcert" label="证件影印" width="150"></el-table-column>
           <el-table-column prop="imgcompany" label="公司影印" width="150"></el-table-column>
           <el-table-column prop="mobile" label="手机" width="150"></el-table-column>
           <el-table-column prop="telphone" label="办公电话" width="150"></el-table-column>
@@ -69,12 +71,28 @@
           <el-table-column prop="conuserid" label="渠道对接员用户ID" width="150"></el-table-column>、
           <el-table-column prop="conusername" label="渠道对接员姓名" width="150"></el-table-column>
           <el-table-column prop="conuserphone" label="渠道对接员联系电话" width="150"></el-table-column>
-          <el-table-column prop="status == 0 ? '禁用': status == 1 ? '正常' : status == 2 ? '锁定': '删除'" label="状态" width="150"></el-table-column>
-
+          <el-table-column prop="status" label="状态" width="150">
+            <template slot-scope="scope"><i>{{scope.row.status == 0 ? '禁用': scope.row.status == 1 ? '正常' : scope.row.status == 2 ? '锁定': '删除'}}</i></template>
+          </el-table-column>
           <el-table-column prop="summary" label="备注" width="150"></el-table-column>
           <el-table-column prop="settime" label="新建时间" width="150"></el-table-column>
-          <el-table-column prop="updatetime " label="修改时间" width="150"></el-table-column>
-
+          <el-table-column prop="updatetime" label="修改时间" width="150"></el-table-column>
+          <el-table-column label="操作" fixed="right" width="250">
+            <template slot-scope="scope">
+              <el-button
+                size="mini"
+                type="danger" v-if= "scope.row.status != 9">删除</el-button>
+              <el-button
+                size="mini"
+                type="primary" v-if= "scope.row.status != 1">正常</el-button>
+              <el-button
+                size="mini"
+                type="warning" v-if= "scope.row.status != 2">锁定</el-button>
+              <el-button
+                size="mini"
+                type="info" v-if= "scope.row.status != 0">禁止</el-button>
+            </template>
+          </el-table-column>
         </el-table>
       </div>
     </div>
@@ -82,6 +100,7 @@
 </template>
 
 <script>
+  let vm
   import headTop from '@/components/headTop'
   export default {
     data() {
@@ -108,7 +127,7 @@
           openbank: "100",
           img: "100",
           background: "100",
-          sex: "100",
+          sex: "0",
           token: "100",
           prov: "100",
           city: "100",
@@ -128,17 +147,22 @@
           conuserid: "100",
           conusername: "100",
           conuserphone: "100",
-          status: "100",
+          status: "1",
           summary: "100",
           settime: "100",
-          updatetime: "100",
+          updatetime: "100"
         }]
       }
+    },
+    mounted(){
+      vm = this;
     },
     components: {
 			headTop
 		},
-		methods: {}
+		methods: {
+
+    }
 
   }
 </script>
