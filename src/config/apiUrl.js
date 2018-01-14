@@ -4,11 +4,11 @@ let baseImgPath;
 
 
 if (process.env.NODE_ENV == 'development') {
-	 baseUrl = 'http://localhost:3000';
-    baseImgPath = 'http://localhost:8002/img/';
+	baseUrl = 'http://localhost:8089';
+  baseImgPath = 'http://localhost:8089/img/';
 }else{
-	 baseUrl = '';
-    baseImgPath = '';
+	baseUrl = '';
+  baseImgPath = '';
 }
 
 export {

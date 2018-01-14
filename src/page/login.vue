@@ -53,20 +53,22 @@
 				vm.$refs[formName].validate(async (valid) => {
 					if (valid) {
 						const res = await login({loginid: vm.loginForm.loginid, pwd: vm.loginForm.pwd}, function(res){
-							if (res.code == "000") {
+							console.log(res)
+							if (res.data.code == "0000") {
 									vm.$message({
                     type: 'success',
-                    message: '登录成功'
+                    message: res.data.message
                   });
                 vm.$router.push('manage');
 							}
 							else {
 								vm.$message({
                   type: 'error',
-                  message: res.message
+                  message: res.data.message
                 });
 							}
 						}, function(res){
+							console.log(res)
 							vm.$notify.error({
 								title: '错误',
 								message: '请输入正确的用户名密码',
