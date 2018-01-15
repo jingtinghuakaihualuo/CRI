@@ -9,6 +9,9 @@ const manage = r => require.ensure([], () => r(require('@/page/manage')), 'manag
 const home = r => require.ensure([], () => r(require('@/page/manage/home'), 'home'));
 const manSystem = r => require.ensure([], () => r(require('@/page/manage/manSystem'), 'manSystem'));
 const addManSys = r => require.ensure([], () => r(require('@/page/manage/addManSys'), 'addManSys'));
+const distributorMan = r => require.ensure([], () => r(require('@/page/manage/distributorMan'), 'distributorMan'));
+const addDistributor = r => require.ensure([], () => r(require('@/page/manage/addDistributor'), 'addDistributor'));
+
 
 export default new Router({
   routes: [
@@ -35,6 +38,16 @@ export default new Router({
         name: 'addManSys',
         component: addManSys,
         meta: ['新增职业顾问管理']
+      },{
+        path: '/distributorMan',
+        name: 'distributorMan',
+        component: distributorMan,
+        meta: ['分销商管理']
+      },{
+        path: '/addDistributor',
+        name: 'addDistributor',
+        component: addDistributor,
+        meta: ['增加分销商管理']
       }]
     }
   ]

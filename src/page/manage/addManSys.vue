@@ -4,7 +4,7 @@
     <el-form ref="formData" :label-position="labelPosition"  :rules="rules" :model="formData" label-width="140px">
       <div class="fromSystem left">
         <el-form-item label="顾问ID" prop="conid">
-          <el-input v-model="formData.conid"></el-input>
+          <el-input placeholder="顾问ID" v-model="formData.conid"></el-input>
         </el-form-item>
         <el-form-item label="经纪人类型" prop="constype">
           
@@ -18,29 +18,51 @@
           </el-select>
         </el-form-item>
         <el-form-item label="注册方式" prop="regtype">
-          <el-input v-model="formData.regtype"></el-input>
+          <el-input placeholder="注册方式" v-model="formData.regtype"></el-input>
         </el-form-item>
         <el-form-item label="所属公司ID" prop="compyid">
-          <el-input v-model="formData.compyid"></el-input>
+          <el-input placeholder="所属公司ID" v-model="formData.compyid"></el-input>
         </el-form-item>
         <el-form-item label="所属公司名称" prop="compyname">
-          <el-input v-model="formData.compyname"></el-input>
+          <el-input placeholder="所属公司名称" v-model="formData.compyname"></el-input>
         </el-form-item>
         <el-form-item label="登录帐号" prop="loginid">
-          <el-input v-model="formData.loginid"></el-input>
+          <el-input placeholder="登录帐号" v-model="formData.loginid"></el-input>
         </el-form-item>
         <el-form-item label="银行账号" prop="deposit">
-          <el-input v-model="formData.deposit"></el-input>
+          <el-input placeholder="银行账号" v-model="formData.deposit"></el-input>
         </el-form-item>
 
         <el-form-item label="开户行" prop="openbank">
-          <el-input v-model="formData.openbank"></el-input>
+          <el-input placeholder="开户行" v-model="formData.openbank"></el-input>
         </el-form-item>
         <el-form-item label="顾问头像" prop="img">
-          <el-input v-model="formData.img"></el-input>
+          <!-- <el-input placeholder="" v-model="formData.img"></el-input> -->
+          <el-upload
+            class="avatar-uploader"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :show-file-list="false"
+            :on-success="handleAvatarSuccess"
+            :before-upload="beforeAvatarUpload">
+            <img v-if="formData.img" :src="formData.img" class="avatar">
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
+          <!-- <el-input placeholder="" v-model="formData.img"></el-input> -->
+          <input type="hidden" v-model="formData.img" name="">
         </el-form-item>
         <el-form-item label="背景图" prop="background">
-          <el-input v-model="formData.background"></el-input>
+          <!-- <el-input placeholder="" v-model="formData.background"></el-input> -->
+          <el-upload
+            class="avatar-uploader"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :show-file-list="false"
+            :on-success="handleAvatarSuccess"
+            :before-upload="beforeAvatarUpload">
+            <img v-if="formData.background" :src="formData.background" class="avatar">
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
+          <!-- <el-input placeholder="" v-model="formData.background"></el-input> -->
+          <input type="hidden" v-model="formData.background" name="">
         </el-form-item>
         <el-form-item label="性别" prop="sex">
           <el-select v-model="formData.sex" placeholder="区">
@@ -68,7 +90,46 @@
         </el-form-item>
 
         <el-form-item label="证件号码" prop="certno">
-          <el-input v-model="formData.certno"></el-input>
+          <el-input placeholder="证件号码" v-model="formData.certno"></el-input>
+        </el-form-item>
+        
+      </div>
+      <div class="fromSystem left">
+        <el-form-item label="行业经验" prop="experience">
+          <el-input placeholder="行业经验" v-model="formData.experience"></el-input>
+        </el-form-item>
+        <el-form-item label="真实证件姓名" prop="certname">
+          <el-input placeholder="真实证件姓名" v-model="formData.certname"></el-input>
+        </el-form-item>
+        <el-form-item label="手机" prop="mobile">
+          <el-input placeholder="手机" v-model="formData.mobile"></el-input>
+        </el-form-item>
+        <el-form-item label="办公电话" prop="telphone">
+          <el-input placeholder="办公电话" v-model="formData.telphone"></el-input>
+        </el-form-item>
+        <el-form-item label="传真" prop="fax">
+          <el-input placeholder="传真" v-model="formData.fax"></el-input>
+        </el-form-item>
+        <el-form-item label="电子邮箱" prop="email">
+          <el-input placeholder="电子邮箱" v-model="formData.email"></el-input>
+        </el-form-item>
+        <el-form-item label="办公地址" prop="office">
+          <el-input placeholder="办公地址" v-model="formData.office"></el-input>
+        </el-form-item>
+        <el-form-item label="自我描述" prop="desc">
+          <el-input placeholder="自我描述" :autosize="{ minRows: 6, maxRows: 15}" type="textarea" v-model="formData.desc"></el-input>
+        </el-form-item>
+        <el-form-item label="渠道对接员用户ID" prop="conuserid">
+          <el-input placeholder="渠道对接员用户ID" v-model="formData.conuserid"></el-input>
+        </el-form-item>
+        <el-form-item label="渠道对接员姓名" prop="conusername">
+          <el-input placeholder="渠道对接员姓名" v-model="formData.conusername"></el-input>
+        </el-form-item>
+        <el-form-item label="渠道对接员联系电话" prop="conuserphone">
+          <el-input placeholder="渠道对接员联系电话" v-model="formData.conuserphone"></el-input>
+        </el-form-item>
+        <el-form-item label="备注" prop="summary">
+          <el-input placeholder="备注" :autosize="{ minRows: 6, maxRows: 15}" type="textarea" v-model="formData.summary"></el-input>
         </el-form-item>
         <el-form-item label="证件影印" prop="imgcert">
           <el-upload
@@ -80,50 +141,11 @@
             <img v-if="formData.imgcert" :src="formData.imgcert" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
-          <!-- <el-input v-model="formData.imgcert"></el-input> -->
+          <!-- <el-input placeholder="" v-model="formData.imgcert"></el-input> -->
           <input type="hidden" v-model="formData.imgcert" name="">
         </el-form-item>
-        
-      </div>
-      <div class="fromSystem left">
-        <el-form-item label="行业经验" prop="experience">
-          <el-input v-model="formData.experience"></el-input>
-        </el-form-item>
-        <el-form-item label="真实证件姓名" prop="certname">
-          <el-input v-model="formData.certname"></el-input>
-        </el-form-item>
-        <el-form-item label="手机" prop="mobile">
-          <el-input v-model="formData.mobile"></el-input>
-        </el-form-item>
-        <el-form-item label="办公电话" prop="telphone">
-          <el-input v-model="formData.telphone"></el-input>
-        </el-form-item>
-        <el-form-item label="传真" prop="fax">
-          <el-input v-model="formData.fax"></el-input>
-        </el-form-item>
-        <el-form-item label="电子邮箱" prop="email">
-          <el-input v-model="formData.email"></el-input>
-        </el-form-item>
-        <el-form-item label="办公地址" prop="office">
-          <el-input v-model="formData.office"></el-input>
-        </el-form-item>
-        <el-form-item label="自我描述" prop="desc">
-          <el-input :autosize="{ minRows: 6, maxRows: 15}" type="textarea" v-model="formData.desc"></el-input>
-        </el-form-item>
-        <el-form-item label="渠道对接员用户ID" prop="conuserid">
-          <el-input v-model="formData.conuserid"></el-input>
-        </el-form-item>
-        <el-form-item label="渠道对接员姓名" prop="conusername">
-          <el-input v-model="formData.conusername"></el-input>
-        </el-form-item>
-        <el-form-item label="渠道对接员联系电话" prop="conuserphone">
-          <el-input v-model="formData.conuserphone"></el-input>
-        </el-form-item>
-        <el-form-item label="备注" prop="summary">
-          <el-input :autosize="{ minRows: 6, maxRows: 15}" type="textarea" v-model="formData.summary"></el-input>
-        </el-form-item>
         <el-form-item label="公司影印" prop="imgcompany">
-          <!-- <el-input v-model="formData.imgcompany"></el-input> -->
+          <!-- <el-input placeholder="" v-model="formData.imgcompany"></el-input> -->
           <el-upload
             class="avatar-uploader"
             action="https://jsonplaceholder.typicode.com/posts/"

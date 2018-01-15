@@ -6,7 +6,7 @@
 			<!-- <i class="el-icon-setting"></i> -->
 			<el-menu-item index="manage">系统设置</el-menu-item>
 			<el-menu-item index="manSystem">置业顾问管理</el-menu-item>
-			<el-menu-item index="">分销商管理</el-menu-item>
+			<el-menu-item index="distributorMan">分销商管理</el-menu-item>
 			<el-menu-item index="">项目管理</el-menu-item>
 			<el-menu-item index="">客户管理</el-menu-item>
 			<el-menu-item index="">业绩佣金管理</el-menu-item>

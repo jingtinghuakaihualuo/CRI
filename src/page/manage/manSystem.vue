@@ -82,16 +82,19 @@
             <template slot-scope="scope">
               <el-button
                 size="mini"
-                type="danger" v-if= "scope.row.status != 9">删除</el-button>
+                type="text" v-if= "scope.row.status != 9">删除</el-button>
               <el-button
                 size="mini"
-                type="primary" v-if= "scope.row.status != 1">正常</el-button>
+                type="text" v-if= "scope.row.status != 1">正常</el-button>
               <el-button
                 size="mini"
-                type="warning" v-if= "scope.row.status != 2">锁定</el-button>
+                type="text" v-if= "scope.row.status != 2">锁定</el-button>
               <el-button
                 size="mini"
-                type="info" v-if= "scope.row.status != 0">禁止</el-button>
+                type="text" v-if= "scope.row.status != 0">禁止</el-button>
+              <el-button
+                size="mini"
+                type="text">修改</el-button>
             </template>
           </el-table-column>
         </el-table>
