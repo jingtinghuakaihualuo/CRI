@@ -11,7 +11,8 @@ const manSystem = r => require.ensure([], () => r(require('@/page/manage/manSyst
 const addManSys = r => require.ensure([], () => r(require('@/page/manage/addManSys'), 'addManSys'));
 const distributorMan = r => require.ensure([], () => r(require('@/page/manage/distributorMan'), 'distributorMan'));
 const addDistributor = r => require.ensure([], () => r(require('@/page/manage/addDistributor'), 'addDistributor'));
-
+const projectMan = r => require.ensure([], () => r(require('@/page/manage/projectMan'), 'projectMan'));
+const addProjectMan = r => require.ensure([], () => r(require('@/page/manage/addProjectMan'), 'addProjectMan'));
 
 export default new Router({
   routes: [
@@ -48,6 +49,16 @@ export default new Router({
         name: 'addDistributor',
         component: addDistributor,
         meta: ['增加分销商管理']
+      },{
+        path: '/projectMan',
+        name: 'projectMan',
+        component: projectMan,
+        meta: ['项目管理-开发商查询']
+      },{
+        path: '/addProjectMan',
+        name: 'addProjectMan',
+        component: addProjectMan,
+        meta: ['项目管理-增加开发商']
       }]
     }
   ]

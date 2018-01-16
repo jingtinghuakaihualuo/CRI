@@ -7,7 +7,7 @@
           <el-input placeholder="顾问ID" v-model="formData.conid"></el-input>
         </el-form-item>
         <el-form-item label="经纪人类型" prop="constype">
-          
+
           <el-select v-model="formData.constype" placeholder="请选择">
             <el-option
               v-for="item in options"
@@ -36,34 +36,7 @@
         <el-form-item label="开户行" prop="openbank">
           <el-input placeholder="开户行" v-model="formData.openbank"></el-input>
         </el-form-item>
-        <el-form-item label="顾问头像" prop="img">
-          <!-- <el-input placeholder="" v-model="formData.img"></el-input> -->
-          <el-upload
-            class="avatar-uploader"
-            action="https://jsonplaceholder.typicode.com/posts/"
-            :show-file-list="false"
-            :on-success="handleAvatarSuccess"
-            :before-upload="beforeAvatarUpload">
-            <img v-if="formData.img" :src="formData.img" class="avatar">
-            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-          </el-upload>
-          <!-- <el-input placeholder="" v-model="formData.img"></el-input> -->
-          <input type="hidden" v-model="formData.img" name="">
-        </el-form-item>
-        <el-form-item label="背景图" prop="background">
-          <!-- <el-input placeholder="" v-model="formData.background"></el-input> -->
-          <el-upload
-            class="avatar-uploader"
-            action="https://jsonplaceholder.typicode.com/posts/"
-            :show-file-list="false"
-            :on-success="handleAvatarSuccess"
-            :before-upload="beforeAvatarUpload">
-            <img v-if="formData.background" :src="formData.background" class="avatar">
-            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-          </el-upload>
-          <!-- <el-input placeholder="" v-model="formData.background"></el-input> -->
-          <input type="hidden" v-model="formData.background" name="">
-        </el-form-item>
+
         <el-form-item label="性别" prop="sex">
           <el-select v-model="formData.sex" placeholder="区">
             <el-option label="男" value="0"></el-option>
@@ -92,9 +65,6 @@
         <el-form-item label="证件号码" prop="certno">
           <el-input placeholder="证件号码" v-model="formData.certno"></el-input>
         </el-form-item>
-        
-      </div>
-      <div class="fromSystem left">
         <el-form-item label="行业经验" prop="experience">
           <el-input placeholder="行业经验" v-model="formData.experience"></el-input>
         </el-form-item>
@@ -116,12 +86,15 @@
         <el-form-item label="办公地址" prop="office">
           <el-input placeholder="办公地址" v-model="formData.office"></el-input>
         </el-form-item>
-        <el-form-item label="自我描述" prop="desc">
-          <el-input placeholder="自我描述" :autosize="{ minRows: 6, maxRows: 15}" type="textarea" v-model="formData.desc"></el-input>
-        </el-form-item>
         <el-form-item label="渠道对接员用户ID" prop="conuserid">
           <el-input placeholder="渠道对接员用户ID" v-model="formData.conuserid"></el-input>
         </el-form-item>
+      </div>
+      <div class="fromSystem left">
+        <el-form-item label="自我描述" prop="desc">
+          <el-input placeholder="自我描述" :autosize="{ minRows: 6, maxRows: 15}" type="textarea" v-model="formData.desc"></el-input>
+        </el-form-item>
+
         <el-form-item label="渠道对接员姓名" prop="conusername">
           <el-input placeholder="渠道对接员姓名" v-model="formData.conusername"></el-input>
         </el-form-item>
@@ -156,6 +129,34 @@
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
           <input type="hidden" v-model="formData.imgcompany" name="">
+        </el-form-item>
+        <el-form-item label="顾问头像" prop="img">
+          <!-- <el-input placeholder="" v-model="formData.img"></el-input> -->
+          <el-upload
+            class="avatar-uploader"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :show-file-list="false"
+            :on-success="handleAvatarSuccess"
+            :before-upload="beforeAvatarUpload">
+            <img v-if="formData.img" :src="formData.img" class="avatar">
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
+          <!-- <el-input placeholder="" v-model="formData.img"></el-input> -->
+          <input type="hidden" v-model="formData.img" name="">
+        </el-form-item>
+        <el-form-item label="背景图" prop="background">
+          <!-- <el-input placeholder="" v-model="formData.background"></el-input> -->
+          <el-upload
+            class="avatar-uploader"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :show-file-list="false"
+            :on-success="handleAvatarSuccess"
+            :before-upload="beforeAvatarUpload">
+            <img v-if="formData.background" :src="formData.background" class="avatar">
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
+          <!-- <el-input placeholder="" v-model="formData.background"></el-input> -->
+          <input type="hidden" v-model="formData.background" name="">
         </el-form-item>
       </div>
       <div class="clear"></div>

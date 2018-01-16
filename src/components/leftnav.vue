@@ -7,7 +7,12 @@
 			<el-menu-item index="manage">系统设置</el-menu-item>
 			<el-menu-item index="manSystem">置业顾问管理</el-menu-item>
 			<el-menu-item index="distributorMan">分销商管理</el-menu-item>
-			<el-menu-item index="">项目管理</el-menu-item>
+			<!-- <el-menu-item index="">项目管理</el-menu-item> -->
+			<el-submenu index="1">
+				<template slot="title"></i>项目管理</template>
+				<el-menu-item index="projectMan">开发商</el-menu-item>
+				<el-menu-item index="projectMes">项目信息</el-menu-item>
+			</el-submenu>
 			<el-menu-item index="">客户管理</el-menu-item>
 			<el-menu-item index="">业绩佣金管理</el-menu-item>
 			<el-menu-item index="">数据管理</el-menu-item>
