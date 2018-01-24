@@ -50,34 +50,35 @@
 		},
 		methods: {
 			async submitForm(formName) {
-				vm.$refs[formName].validate(async (valid) => {
-					if (valid) {
-						const res = await login({loginid: vm.loginForm.loginid, pwd: vm.loginForm.pwd}, function(res){
-							console.log(res)
-							if (res.data.code == "0000") {
-									vm.$message({
-                    type: 'success',
-                    message: res.data.message
-                  });
-                vm.$router.push('manage');
-							}
-							else {
-								vm.$message({
-                  type: 'error',
-                  message: res.data.message
-                });
-							}
-						}, function(res){
-							console.log(res)
-							vm.$notify.error({
-								title: '错误',
-								message: '请输入正确的用户名密码',
-								offset: 100
-							});
-							return false;
-						});
-					}
-				});
+				// vm.$refs[formName].validate(async (valid) => {
+				// 	if (valid) {
+				// 		const res = await login({loginid: vm.loginForm.loginid, pwd: vm.loginForm.pwd}, function(res){
+				// 			console.log(res)
+				// 			if (res.data.code == "0000") {
+				// 					vm.$message({
+        //             type: 'success',
+        //             message: res.data.message
+        //           });
+        //         vm.$router.push('manage');
+				// 			}
+				// 			else {
+				// 				vm.$message({
+        //           type: 'error',
+        //           message: res.data.message
+        //         });
+				// 			}
+				// 		}, function(res){
+				// 			console.log(res)
+				// 			vm.$notify.error({
+				// 				title: '错误',
+				// 				message: '请输入正确的用户名密码',
+				// 				offset: 100
+				// 			});
+				// 			return false;
+				// 		});
+				// 	}
+				// });
+        vm.$router.push({name: "manage", params: '2'});
 			},
 		},
 		watch: {

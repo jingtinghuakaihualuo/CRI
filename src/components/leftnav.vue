@@ -3,11 +3,9 @@
 	<!--   -->
 		<el-menu :default-active="defaultActive" style="min-height: 100%;" router>
 			<!-- <el-menu-item index="manage"><i class="el-icon-menu"></i>首页</el-menu-item> -->
-			<!-- <i class="el-icon-setting"></i> -->
-			<el-menu-item index="manage">系统设置</el-menu-item>
+			<!-- <el-menu-item index="manage">系统设置</el-menu-item>
 			<el-menu-item index="manSystem">置业顾问管理</el-menu-item>
 			<el-menu-item index="distributorMan">分销商管理</el-menu-item>
-			<!-- <el-menu-item index="">项目管理</el-menu-item> -->
 			<el-submenu index="1">
 				<template slot="title"></i>项目管理</template>
 				<el-menu-item index="projectMan">开发商</el-menu-item>
@@ -25,7 +23,17 @@
 			<el-menu-item index="">加盟管理</el-menu-item>
 			<el-menu-item index="">其它</el-menu-item>
 			<el-menu-item index="">带看费支付功能</el-menu-item>
-			<el-menu-item index="">项目管理员</el-menu-item>
+			<el-menu-item index="">项目管理员</el-menu-item> -->
+
+
+			<!-- 项目经理路由 -->
+			<el-submenu index="1">
+				<template slot="title"></i>项目经理</template>
+				<el-menu-item index="addproject">项目信息</el-menu-item>
+				<el-menu-item index="">项目信息</el-menu-item>
+			</el-submenu>
+
+
 			<!-- <el-submenu index="2">
 				<template slot="title"><i class="el-icon-document"></i>后台管理</template>
 				<el-menu-item index="manSystem">系统设置</el-menu-item>
