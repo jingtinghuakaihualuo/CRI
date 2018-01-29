@@ -3,11 +3,14 @@
     <headTop></headTop>
     <div class="searchGroup">
       <div class="dataTable">
-        <el-form :inline="true" style="width: 100%" empty-text="暂无数据">
-          <el-form-item v-for="item in getItems" v-bind:label="item.labelName" v-bind:prop="item.propertyName" width="150">
-          {{item.propertyValue}}
+        <el-form :inline="true" ref="listData" style="width: 100%" empty-text="暂无数据">
+          <!-- <el-form-item v-for="item in listData" label="活动名称">
+            <el-input v-model="item.value"></el-input>
+          </el-form-item> -->
+          <el-form-item label="活动名称">
+            <el-input v-model="formData.appid"></el-input>
           </el-form-item>
-          <el-form-item label="kkk">
+
 
             <el-button type="text" @click="getItems">lll</el-button>
           </el-form-item>
@@ -34,17 +37,15 @@
   import headTop from '@/components/headTop'
   import {getProjInfo} from '@/apiData/api'
 
-  function FormItem(propertyName, labelName, propertyValue) {
-    this.propertyName = propertyName;
-    this.labelName = labelName;
-    this.propertyValue = propertyValue;
-  }
+  // function FormItem(propertyName, labelName, propertyValue) {
+  //   this.propertyName = propertyName;
+  //   this.labelName = labelName;
+  //   this.propertyValue = propertyValue;
+  // }
 
   export default {
     data() {
-
       return {
-
         formData: {
           appid: "100",
           bldid: "100",
@@ -81,7 +82,9 @@
           summary: "100",
           settime: "100",
           updatetime: "100"
-        }
+        },
+        listData: [],
+        arr:{labelName:'', value:''}
       }
     },
     mounted() {
@@ -92,19 +95,24 @@
 //      }, function (err) {
 //        console.log(err)
 //      })
+      this.getItems();
     },
     components: {
       headTop
     },
     methods: {
-      getItems: function () {
-        const items = new Array();
-        for (let item in this.formData) {
-          console.log(item+this.formData[item]);
-          items.push(new FormItem(item,this.formData[item], "9"))
-        }
-        return items
-      }
+      // getItems: function () {
+      //   const formDatas = this.formData;
+      //   for (let key in formDatas) {
+      //     this.arr.labelName = key;
+      //     this.arr.value = formDatas[key];
+      //     this.listData.push(this.arr);
+      //   }
+      //   console.log(this.listData)
+      // }
+    },
+    FormItem() {
+
     }
 
   }
