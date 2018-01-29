@@ -8,9 +8,8 @@
             <el-input v-model="item.value"></el-input>
           </el-form-item> -->
           <el-form-item label="活动名称">
-            <el-input v-model="formData.appid"></el-input>
+            <el-input v-model="formData.appid" readonly></el-input>
           </el-form-item>
-
 
             <el-button type="text" @click="getItems">lll</el-button>
           </el-form-item>
@@ -37,11 +36,6 @@
   import headTop from '@/components/headTop'
   import {getProjInfo} from '@/apiData/api'
 
-  // function FormItem(propertyName, labelName, propertyValue) {
-  //   this.propertyName = propertyName;
-  //   this.labelName = labelName;
-  //   this.propertyValue = propertyValue;
-  // }
 
   export default {
     data() {
@@ -89,27 +83,14 @@
     },
     mounted() {
       vm = this;
-//      getProjInfo({approverid: 0}, function (response) {
-//        console.log(response);
-//        this.formData = response.data;
-//      }, function (err) {
-//        console.log(err)
-//      })
-      this.getItems();
     },
     components: {
       headTop
     },
     methods: {
-      // getItems: function () {
-      //   const formDatas = this.formData;
-      //   for (let key in formDatas) {
-      //     this.arr.labelName = key;
-      //     this.arr.value = formDatas[key];
-      //     this.listData.push(this.arr);
-      //   }
-      //   console.log(this.listData)
-      // }
+      getItems() {
+        
+      }
     },
     FormItem() {
 
