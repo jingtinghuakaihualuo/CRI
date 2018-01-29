@@ -100,10 +100,10 @@
       getItems: function () {
         const items = new Array();
         for (let item in this.formData) {
-          console.log(item+this.formData[item])
-//          items.push(new FormItem(item,this.formData[item], "9"))
+          console.log(item+this.formData[item]);
+          items.push(new FormItem(item,this.formData[item], "9"))
         }
-
+        return items
       }
     }
 
