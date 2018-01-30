@@ -7,14 +7,16 @@
         <el-form-item label="楼盘全景"></el-form-item>
         <el-form-item label="楼盘信息">
           <el-form inline class="info-form">
-            <el-form-item v-for="(value,key) in buildingInfo" v-bind:label="value[0]" v-bind:prop="key">
+            <el-form-item v-for="(value,key) in buildingInfo" :label="value[0]" :prop="key"
+                          :label-width=labelWidth>
               <el-input v-model="value[1]" readonly/>
             </el-form-item>
           </el-form>
         </el-form-item>
         <el-form-item label="审批信息">
           <el-form inline class="info-form">
-            <el-form-item v-for="(value,key) in approveInfo" v-bind:label="value[0]" v-bind:prop="key">
+            <el-form-item v-for="(value,key) in approveInfo" :label="value[0]" :prop="key"
+                          :label-width=labelWidth>
               <el-input v-model="value[1]" readonly/>
             </el-form-item>
           </el-form>
@@ -22,7 +24,8 @@
 
         <el-form-item label="项目状态">
           <el-form inline class="info-form">
-            <el-form-item v-for="(value,key) in processInfo" v-bind:label="value[0]" v-bind:prop="key">
+            <el-form-item v-for="(value,key) in processInfo" :label="value[0]" :prop="key"
+                          :label-width=labelWidth>
               <el-input v-model="value[1]" readonly/>
             </el-form-item>
           </el-form>
@@ -30,14 +33,16 @@
 
         <el-form-item label="联系信息">
           <el-form inline class="info-form">
-            <el-form-item v-for="(value,key) in contactInfo" v-bind:label="value[0]" v-bind:prop="key">
+            <el-form-item v-for="(value,key) in contactInfo" :label="value[0]" :prop="key"
+                          :label-width=labelWidth>
               <el-input v-model="value[1]" readonly/>
             </el-form-item>
           </el-form>
         </el-form-item>
         <el-form-item label="相关活动">
           <el-form inline class="info-form">
-            <el-form-item v-for="(value,key) in activityInfo" v-bind:label="value[0]" v-bind:prop="key">
+            <el-form-item v-for="(value,key) in activityInfo" :label="value[0]" :prop="key"
+                          :label-width=labelWidth>
               <el-input v-model="value[1]" readonly/>
             </el-form-item>
           </el-form>
@@ -51,7 +56,7 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="不通过原因" v-if="approve==0">
-          <el-input type="textarea"></el-input>
+          <el-input type="textarea" autosize v-model="reason"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary">确认提交</el-button>
@@ -64,12 +69,14 @@
 <script>
   let vm;
   import headTop from '@/components/headTop'
-  import {getProjInfo} from '@/apiData/api'
+  import {getProjInfo, approveProj} from '@/apiData/api'
 
 
   export default {
     data() {
       return {
+        reason: "",
+        labelWidth: "135px",
         labelPosition: "top",
         approve: "0",
         panorama: ["全景", "100"],
@@ -149,6 +156,9 @@
         }, function (err) {
           console.log(err)
         })
+      },
+      approve:function () {
+        
       }
     }
   }

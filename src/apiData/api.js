@@ -6,3 +6,7 @@ export const login = (data, suc, err) => api('/login/plat', data, 'POST', suc, e
 /*
 * 获取项目信息*/
 export const getProjInfo = (data, suc, err) => api('/approve/build', data, 'POST', suc, err);
+/*
+* 项目审批*/
+export const approveProj = (data, suc, err) => api('/approve/build/do', data, 'POST', suc, err);
+
