@@ -56,7 +56,9 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="不通过原因" v-if="approve==0">
-          <el-input type="textarea" autosize v-model="reason"></el-input>
+          <div style="width: 70%">
+            <el-input type="textarea" v-model="reason"></el-input>
+          </div>
         </el-form-item>
         <el-form-item>
           <el-button type="primary">确认提交</el-button>
@@ -157,13 +159,12 @@
           console.log(err)
         })
       },
-      approve:function () {
-        
+      approve: function () {
+
       }
     }
   }
 </script>
-
 
 <style lang="sass" scoped>
   @import '../../style/manager'
