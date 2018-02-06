@@ -10,3 +10,8 @@ export const getProjInfo = (data, suc, err) => api('/approve/build', data, 'POST
 * 项目审批*/
 export const approveProj = (data, suc, err) => api('/approve/build/do', data, 'POST', suc, err);
 
+/*
+* 新增分销商*/
+export const addDistributor = (data, suc, err) => api('/plat/distributor/add', data, 'POST', suc, err);
+
+

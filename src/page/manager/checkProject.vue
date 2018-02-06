@@ -2,68 +2,81 @@
   <div class="fillcontain">
     <headTop></headTop>
     <div class="page_body">
-      <el-form :label-position="labelPosition">
-        <el-form-item label="楼盘名称">{{bldname[1]}}</el-form-item>
-        <el-form-item label="楼盘全景"></el-form-item>
-        <el-form-item label="楼盘信息">
-          <el-form inline class="info-form">
-            <el-form-item v-for="(value,key) in buildingInfo" :label="value[0]" :prop="key"
-                          :label-width=labelWidth>
-              <el-input v-model="value[1]" readonly/>
+      <el-tabs v-model="currentTab" type="card"
+               @tab-click="tabClick">
+        <el-tab-pane
+          v-for="(item,index) in tabsData"
+          :label="'项目'+(index+1)"
+          :name="index">
+          <el-form :label-position="labelPosition">
+            <el-form-item label="楼盘名称">
+              <img :src="item['logo']" class="bldLogo"/>
+              {{item['bldname']}}
             </el-form-item>
-          </el-form>
-        </el-form-item>
-        <el-form-item label="审批信息">
-          <el-form inline class="info-form">
-            <el-form-item v-for="(value,key) in approveInfo" :label="value[0]" :prop="key"
-                          :label-width=labelWidth>
-              <el-input v-model="value[1]" readonly/>
+            <el-form-item label="楼盘全景">
+              <img :src="item['panorama']" class="bldImg"/>
             </el-form-item>
-          </el-form>
-        </el-form-item>
+            <el-form-item label="楼盘信息">
+              <el-form inline class="info-form">
+                <el-form-item v-for="(value,key) in buildingInfo" :label="value[0]"
+                              :label-width=labelWidth>
+                  <el-input v-model="item[key]" readonly/>
+                </el-form-item>
+              </el-form>
+            </el-form-item>
+            <el-form-item label="审批信息">
+              <el-form inline class="info-form">
+                <el-form-item v-for="(value,key) in approveInfo" :label="value[0]"
+                              :label-width=labelWidth>
+                  <el-input v-model="item[key]" readonly/>
+                </el-form-item>
+              </el-form>
+            </el-form-item>
 
-        <el-form-item label="项目状态">
-          <el-form inline class="info-form">
-            <el-form-item v-for="(value,key) in processInfo" :label="value[0]" :prop="key"
-                          :label-width=labelWidth>
-              <el-input v-model="value[1]" readonly/>
+            <el-form-item label="项目状态">
+              <el-form inline class="info-form">
+                <el-form-item v-for="(value,key) in processInfo" :label="value[0]"
+                              :label-width=labelWidth>
+                  <el-input v-model="item[key]" readonly/>
+                </el-form-item>
+              </el-form>
+            </el-form-item>
+
+            <el-form-item label="联系信息">
+              <el-form inline class="info-form">
+                <el-form-item v-for="(value,key) in contactInfo" :label="value[0]"
+                              :label-width=labelWidth>
+                  <el-input v-model="item[key]" readonly/>
+                </el-form-item>
+              </el-form>
+            </el-form-item>
+            <el-form-item label="相关活动">
+              <el-form inline class="info-form">
+                <el-form-item v-for="(value,key) in activityInfo" :label="value[0]"
+                              :label-width=labelWidth>
+                  <el-input v-model="item[key]" readonly/>
+                </el-form-item>
+              </el-form>
+            </el-form-item>
+
+
+            <el-form-item label="审批结果">
+              <el-radio-group v-model="approve">
+                <el-radio label="1">通过</el-radio>
+                <el-radio label="0">不通过</el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item label="不通过原因" v-if="approve==0">
+              <div style="width: 70%">
+                <el-input type="textarea" v-model="reason"></el-input>
+              </div>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="approveResult">确认提交</el-button>
             </el-form-item>
           </el-form>
-        </el-form-item>
-
-        <el-form-item label="联系信息">
-          <el-form inline class="info-form">
-            <el-form-item v-for="(value,key) in contactInfo" :label="value[0]" :prop="key"
-                          :label-width=labelWidth>
-              <el-input v-model="value[1]" readonly/>
-            </el-form-item>
-          </el-form>
-        </el-form-item>
-        <el-form-item label="相关活动">
-          <el-form inline class="info-form">
-            <el-form-item v-for="(value,key) in activityInfo" :label="value[0]" :prop="key"
-                          :label-width=labelWidth>
-              <el-input v-model="value[1]" readonly/>
-            </el-form-item>
-          </el-form>
-        </el-form-item>
-
-
-        <el-form-item label="审批结果">
-          <el-radio-group v-model="approve">
-            <el-radio label="1">通过</el-radio>
-            <el-radio label="0">不通过</el-radio>
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="不通过原因" v-if="approve==0">
-          <div style="width: 70%">
-            <el-input type="textarea" v-model="reason"></el-input>
-          </div>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary">确认提交</el-button>
-        </el-form-item>
-      </el-form>
+        </el-tab-pane>
+      </el-tabs>
     </div>
   </div>
 </template>
@@ -77,6 +90,7 @@
   export default {
     data() {
       return {
+        tabsData: [1],
         reason: "",
         labelWidth: "135px",
         labelPosition: "top",
@@ -149,18 +163,27 @@
       headTop
     },
     methods: {
-      init: function () {
-        getProjInfo({approverid: 0}, function (response) {
+      tabClick(tab, event) {
+
+      },
+      init() {
+        getProjInfo({approverid: 0, status: "2"}, function (response) {
           console.log(response);
-          for (let key in response.data) {
-            this.formData[key][1] = response.data[key]
-          }
+          vm.tabsData = response.data.result
         }, function (err) {
           console.log(err)
         })
       },
-      approve: function () {
-
+      approveResult() {
+        approveProj({
+            approverid: 0, status: "2", appid: 1, reason: vm.reason
+          }, function (response) {
+            console.log(response);
+            vm.init()
+          }, function (err) {
+            console.log(err)
+          }
+        )
       }
     }
   }
