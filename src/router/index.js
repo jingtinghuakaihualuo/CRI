@@ -16,6 +16,7 @@ const projectMan = r => require.ensure([], () => r(require('@/page/manage/projec
 const addProjectMan = r => require.ensure([], () => r(require('@/page/manage/addProjectMan'), 'addProjectMan'));
 // 项目经理
 const addproject = r => require.ensure([], () => r(require('@/page/manager/addproject'), 'addproject'));
+console.log(addproject);
 export default new Router({
   routes: [
   	{
