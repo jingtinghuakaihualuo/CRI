@@ -1,7 +1,7 @@
 <template>
   <div class="fillcontain">
     <headTop></headTop>
-    <el-form ref="formData" :label-position="labelPosition"  :rules="rules" :model="formData" label-width="140px">
+    <el-form ref="formData" :label-position="labelPosition" :rules="rules" :model="formData" label-width="140px">
       <div class="fromSystem left">
         <el-form-item label="顾问ID" prop="conid">
           <el-input placeholder="顾问ID" v-model="formData.conid"></el-input>
@@ -92,7 +92,8 @@
       </div>
       <div class="fromSystem left">
         <el-form-item label="自我描述" prop="desc">
-          <el-input placeholder="自我描述" :autosize="{ minRows: 6, maxRows: 15}" type="textarea" v-model="formData.desc"></el-input>
+          <el-input placeholder="自我描述" :autosize="{ minRows: 6, maxRows: 15}" type="textarea"
+                    v-model="formData.desc"></el-input>
         </el-form-item>
 
         <el-form-item label="渠道对接员姓名" prop="conusername">
@@ -102,7 +103,8 @@
           <el-input placeholder="渠道对接员联系电话" v-model="formData.conuserphone"></el-input>
         </el-form-item>
         <el-form-item label="备注" prop="summary">
-          <el-input placeholder="备注" :autosize="{ minRows: 6, maxRows: 15}" type="textarea" v-model="formData.summary"></el-input>
+          <el-input placeholder="备注" :autosize="{ minRows: 6, maxRows: 15}" type="textarea"
+                    v-model="formData.summary"></el-input>
         </el-form-item>
         <el-form-item label="证件影印" prop="imgcert">
           <el-upload
@@ -168,120 +170,121 @@
 </template>
 
 <script>
-import headTop from '@/components/headTop'
-let vm;
-export default {
-  data() {
-    return {
-      formData: {
-        conid: "",
-        constype: "",
-        regtype: "",
-        compyid: "",
-        compyname: "",
-        loginid: "",
-        deposit: "",
-        openbank: "",
-        img: "",
-        background: "",
-        sex: "",
-        prov: "",
-        city: "",
-        prov: "",
-        experience: "",
-        certname: "",
-        certno: "",
-        imgcert: "",
-        imgcompany: "",
-        mobile: "",
-        telphone: "",
-        fax: "",
-        email: "",
-        office: "",
-        desc: "",
-        conuserid: "",
-        conusername: "",
-        conuserphone: "",
-        summary: "",
-      },
-      options: [{
-        value: "1",
-        label: "企业注册"
-      },{
-        value: "2",
-        label: "企业员工"
-      },{
-        value: "3",
-        label: "独立经纪"
-      }],
-      labelPosition: "right",
-      rules: {
-        conid:[],
-        constype: [{
-          required: true, message: "请输入经纪人类型", trigger: 'change'
-        }],
-        regtype: [{
-          required: true, message: "注册方式", trigger: 'change'
-        }],
-        compyid: [{
-          required: true, message: "所属公司ID", trigger: 'change'
-        }],
-        compyname: [{
-          required: true, message: "所属公司名称", trigger: 'change'
-        }],
-        loginid: [{
-          required: true, message: "所属公司名称", trigger: 'change'
-        }],
-        deposit: [],
-        openbank: [],
-        img: [],
-        background: [],
-        sex: [{
-          required: true, message: "性别", trigger: 'change'
-        }],
-        prov: [],
-        city: [],
-        prov: [],
-        experience: [],
-        certname: [],
-        certno: [],
-        imgcert: [],
-        imgcompany: [],
-        mobile: [{
-          required: true, message: "手机", trigger: 'change'
-        }],
-        telphone: [],
-        fax: [],
-        email: [],
-        office: [],
-        desc: [],
-        conuserid: [],
-        conusername: [],
-        conuserphone: [],
-        summary: [],
-      },
-      dialogImageUrl:'',
-      dialogVisible: false
-    }
-  },
-  mounted(){
-    vm = this;
-    // console.log(this.$route.params);
-  },
-  components: {
-    headTop
-  },
-  methods: {
-    submitForm() {
+  import headTop from '@/components/headTop'
 
+  let vm;
+  export default {
+    data() {
+      return {
+        formData: {
+          conid: "",
+          constype: "",
+          regtype: "",
+          compyid: "",
+          compyname: "",
+          loginid: "",
+          deposit: "",
+          openbank: "",
+          img: "",
+          background: "",
+          sex: "",
+          prov: "",
+          city: "",
+          prov: "",
+          experience: "",
+          certname: "",
+          certno: "",
+          imgcert: "",
+          imgcompany: "",
+          mobile: "",
+          telphone: "",
+          fax: "",
+          email: "",
+          office: "",
+          desc: "",
+          conuserid: "",
+          conusername: "",
+          conuserphone: "",
+          summary: "",
+        },
+        options: [{
+          value: "1",
+          label: "企业注册"
+        }, {
+          value: "2",
+          label: "企业员工"
+        }, {
+          value: "3",
+          label: "独立经纪"
+        }],
+        labelPosition: "right",
+        rules: {
+          conid: [],
+          constype: [{
+            required: true, message: "请输入经纪人类型", trigger: 'change'
+          }],
+          regtype: [{
+            required: true, message: "注册方式", trigger: 'change'
+          }],
+          compyid: [{
+            required: true, message: "所属公司ID", trigger: 'change'
+          }],
+          compyname: [{
+            required: true, message: "所属公司名称", trigger: 'change'
+          }],
+          loginid: [{
+            required: true, message: "所属公司名称", trigger: 'change'
+          }],
+          deposit: [],
+          openbank: [],
+          img: [],
+          background: [],
+          sex: [{
+            required: true, message: "性别", trigger: 'change'
+          }],
+          prov: [],
+          city: [],
+          prov: [],
+          experience: [],
+          certname: [],
+          certno: [],
+          imgcert: [],
+          imgcompany: [],
+          mobile: [{
+            required: true, message: "手机", trigger: 'change'
+          }],
+          telphone: [],
+          fax: [],
+          email: [],
+          office: [],
+          desc: [],
+          conuserid: [],
+          conusername: [],
+          conuserphone: [],
+          summary: [],
+        },
+        dialogImageUrl: '',
+        dialogVisible: false
+      }
     },
-    handleAvatarSuccess(res, file) {
+    mounted() {
+      vm = this;
+      // console.log(this.$route.params);
     },
-    beforeAvatarUpload(file) {
+    components: {
+      headTop
+    },
+    methods: {
+      submitForm() {
 
+      },
+      handleAvatarSuccess(res, file) {
+      },
+      beforeAvatarUpload(file) {
+
+      }
     }
   }
-}
 </script>
 
 <style lang="css">

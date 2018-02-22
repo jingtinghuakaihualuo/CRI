@@ -1,42 +1,42 @@
 <template>
   <div class="fillcontain">
     <headTop></headTop>
-    <el-form ref="formData" :label-position="labelPosition"  :rules="rules" :model="formData" label-width="140px">
+    <el-form ref="formData" :label-position="labelPosition" :rules="rules" :model="formData" label-width="140px">
       <div class="fromSystem left">
         <el-form-item label="顾问ID" prop="disid">
-          <el-input v-model="formData.disid" placeholder = '顾问ID'></el-input>
+          <el-input v-model="formData.disid" placeholder='顾问ID'></el-input>
         </el-form-item>
         <el-form-item label="上级机构ID" prop="disid">
-          <el-input v-model="formData.dispid" placeholder = '上级机构ID'></el-input>
+          <el-input v-model="formData.dispid" placeholder='上级机构ID'></el-input>
         </el-form-item>
         <el-form-item label="分销商名称" prop="disname">
-          <el-input v-model="formData.disname" placeholder = '分销商名称'></el-input>
+          <el-input v-model="formData.disname" placeholder='分销商名称'></el-input>
         </el-form-item>
         <el-form-item label="级别" prop="level">
-          <el-input v-model="formData.level" placeholder = '级别'></el-input>
+          <el-input v-model="formData.level" placeholder='级别'></el-input>
         </el-form-item>
         <el-form-item label="店面编号" prop="shopno">
-          <el-input v-model="formData.shopno" placeholder = '店面编号'></el-input>
+          <el-input v-model="formData.shopno" placeholder='店面编号'></el-input>
         </el-form-item>
         <el-form-item label="公司logo" prop="logo">
-          <el-input v-model="formData.logo" placeholder = '公司logo'></el-input>
+          <el-input v-model="formData.logo" placeholder='公司logo'></el-input>
         </el-form-item>
         <el-form-item label="法人姓名" prop="instreprname">
-          <el-input v-model="formData.instreprname" placeholder = '法人姓名'></el-input>
+          <el-input v-model="formData.instreprname" placeholder='法人姓名'></el-input>
         </el-form-item>
 
         <el-form-item label="法人证件" prop="instreprcertn">
-          <el-input v-model="formData.instreprcertn" placeholder = '法人证件'></el-input>
+          <el-input v-model="formData.instreprcertn" placeholder='法人证件'></el-input>
         </el-form-item>
         <el-form-item label="法人联系电话" prop="instreprphone">
-          <el-input v-model="formData.instreprphone" placeholder = '法人联系电话'></el-input>
+          <el-input v-model="formData.instreprphone" placeholder='法人联系电话'></el-input>
         </el-form-item>
         <el-form-item label="联系姓名" prop="contractname">
-          <el-input v-model="formData.contractname" placeholder = '联系姓名'></el-input>
+          <el-input v-model="formData.contractname" placeholder='联系姓名'></el-input>
         </el-form-item>
 
         <el-form-item label="手机" prop="contractname">
-          <el-input v-model="formData.contractname" placeholder = '手机'></el-input>
+          <el-input v-model="formData.contractname" placeholder='手机'></el-input>
         </el-form-item>
         <el-form-item label="法人身份证影印" prop="imgcertno">
           <el-upload
@@ -104,10 +104,10 @@
           </el-select>
         </el-form-item>
         <el-form-item label="详细地址" prop="address">
-          <el-input v-model="formData.address" placeholder = '详细地址'></el-input>
+          <el-input v-model="formData.address" placeholder='详细地址'></el-input>
         </el-form-item>
         <el-form-item label="办公地址" prop="office">
-          <el-input v-model="formData.office" placeholder = '办公地址'></el-input>
+          <el-input v-model="formData.office" placeholder='办公地址'></el-input>
         </el-form-item>
         <el-form-item label="合作开始时间" prop="joinbegindate">
           <!-- <el-input v-model="formData.joinbegindate"></el-input> -->
@@ -136,7 +136,8 @@
           </el-select>
         </el-form-item>
         <el-form-item label="备注" prop="summary">
-          <el-input :autosize="{ minRows: 6, maxRows: 15}" type="textarea" v-model="formData.summary" placeholder="备注"></el-input>
+          <el-input :autosize="{ minRows: 6, maxRows: 15}" type="textarea" v-model="formData.summary"
+                    placeholder="备注"></el-input>
         </el-form-item>
         <el-form-item label="新建时间" prop="settime">
           <!-- <el-input v-model="formData.settime"></el-input> -->
@@ -157,103 +158,111 @@
       </div>
       <div class="clear"></div>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('formData')">提交</el-button>
+        <el-button type="primary" @click="submitForm">提交</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
-import headTop from '@/components/headTop'
-let vm;
-export default {
-  data() {
-    return {
-      formData: {
-        disid: '',
-        dispid: '',
-        disname: '',
-        level: '',
-        shopno: '',
-        logo: '',
-        instreprname: '',
-        instreprcertn: '',
-        instreprphone: '',
-        contractname: '',
-        contractname: '',
-        imgcertno: '',
-        regcapital: '',
-        socode: '',
-        imgsocode: '',
-        prov: '',
-        city: '',
-        area: '',
-        address: '',
-        office: '',
-        joinbegindate: '',
-        joinenddate: '',
-        status: '',
-        summary: '',
-        settime: '',
-        updatetime: '',
-        imgopen: '',
-      },
-      labelPosition: "right",
-      rules: {
-        disid: [],
-        dispid: [],
-        disname: [
-          {
-            required: true, message: "请输入分销商名称", trigger: 'change'
+  import headTop from '@/components/headTop'
+  import {addDistributor} from '@/apiData/api'
+
+  let vm;
+  export default {
+    data() {
+      return {
+        formData: {
+          disid: '',
+          dispid: '',
+          disname: '',
+          level: '',
+          shopno: '',
+          logo: '',
+          instreprname: '',
+          instreprcertn: '',
+          instreprphone: '',
+          contractname: '',
+          contractname: '',
+          imgcertno: '',
+          regcapital: '',
+          socode: '',
+          imgsocode: '',
+          prov: '',
+          city: '',
+          area: '',
+          address: '',
+          office: '',
+          joinbegindate: '',
+          joinenddate: '',
+          status: '',
+          summary: '',
+          settime: '',
+          updatetime: '',
+          imgopen: '',
+        },
+        labelPosition: "right",
+        rules: {
+          disid: [],
+          dispid: [],
+          disname: [
+            {
+              required: true, message: "请输入分销商名称", trigger: 'change'
+            }
+          ],
+          level: [],
+          shopno: [],
+          logo: [],
+          instreprname: [],
+          instreprcertn: [],
+          instreprphone: [],
+          contractname: [],
+          contractname: [],
+          imgcertno: [],
+          regcapital: [],
+          socode: [],
+          imgsocode: [],
+          prov: [],
+          city: [],
+          area: [],
+          address: [],
+          office: [],
+          joinbegindate: [],
+          joinenddate: [],
+          status: [],
+          summary: [],
+          settime: [],
+          updatetime: [],
+          imgopen: [],
+        },
+        dialogImageUrl: '',
+        dialogVisible: false
+      }
+    },
+    mounted() {
+      vm = this;
+      // console.log(this.$route.params);
+    },
+    components: {
+      headTop
+    },
+    methods: {
+      submitForm() {
+        addDistributor(vm.formData, function (response) {
+            console.log(response);
+          }, function (err) {
+            console.log(err)
           }
-        ],
-        level: [],
-        shopno: [],
-        logo: [],
-        instreprname: [],
-        instreprcertn: [],
-        instreprphone: [],
-        contractname: [],
-        contractname: [],
-        imgcertno: [],
-        regcapital: [],
-        socode: [],
-        imgsocode: [],
-        prov: [],
-        city: [],
-        area: [],
-        address: [],
-        office: [],
-        joinbegindate: [],
-        joinenddate: [],
-        status: [],
-        summary: [],
-        settime: [],
-        updatetime: [],
-        imgopen: [],
+        )
+
       },
-      dialogImageUrl:'',
-      dialogVisible: false
-    }
-  },
-  mounted(){
-    vm = this;
-    // console.log(this.$route.params);
-  },
-  components: {
-    headTop
-  },
-  methods: {
-    submitForm() {
+      handleAvatarSuccess(res, file) {
+      },
+      beforeAvatarUpload(file) {
 
-    },
-    handleAvatarSuccess(res, file) {
-    },
-    beforeAvatarUpload(file) {
-
+      }
     }
   }
-}
 </script>
 
 <style lang="css">

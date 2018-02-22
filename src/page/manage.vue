@@ -30,5 +30,4 @@
 
 <style lang="sass" scoped>
 	@import '../style/mixin'
-	@import '../style/common'
 </style>
